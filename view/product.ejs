@@ -1,0 +1,14 @@
+<%- include('./layout/main.ejs')%>
+<% for(let prods of prod) {%>
+   <ul >
+
+    <li><h1><%= prods.title%></h1></li>
+    <li><h4>$<%= prods.price%></h4></li>
+    <li><h4><%= prods.description%></h4></li>
+    <a href="/editproducts/<%= prods._id %>?edit=true"><button>Edit</button></a>
+    <form action="/delete-product" method="post">
+        <input type="hidden" value="<%=prods._id%>" name="productId">
+        <button type="submit">Delete </button>
+    </form>
+   </ul>
+    <%}%>
